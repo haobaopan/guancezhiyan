@@ -1,0 +1,11 @@
+FROM python:3.13-slim
+RUN apt-get update && apt-get install -y --no-install-recommends poppler-utils ca-certificates && rm -rf /var/lib/apt/lists/*
+WORKDIR /opt/policy
+COPY app ./app
+COPY policy_core ./policy_core
+COPY 应用平台_v2.py 应用源码_示例知识库版.py ./
+RUN useradd --uid 10001 --create-home policy && mkdir -p /srv/data && chown policy:policy /srv/data
+USER policy
+ENV APP_HOST=0.0.0.0 APP_PORT=8766 APP_DATA_DIR=/srv/data PUBLIC_KB_PATH=/srv/public/knowledge.sqlite3 PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+EXPOSE 8766
+CMD ["python", "应用平台_v2.py"]

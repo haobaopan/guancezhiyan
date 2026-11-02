@@ -1,0 +1,13 @@
+# Allowlist the only files required by this Dockerfile.
+# Keep local backups, school access material, databases and credentials
+# outside the build context even when the checkout contains them.
+**
+!app/
+!app/**
+!policy_core/
+!policy_core/**
+!应用平台_v2.py
+!应用源码_示例知识库版.py
+**/__pycache__
+**/*.py[cod]
+**/.DS_Store

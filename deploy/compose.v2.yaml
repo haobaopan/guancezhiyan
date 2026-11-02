@@ -1,0 +1,28 @@
+services:
+  policy:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.v2
+    restart: unless-stopped
+    env_file: ../.env.v2
+    environment:
+      APP_HOST: 0.0.0.0
+      APP_PORT: 8766
+      APP_DATA_DIR: /srv/data
+      PUBLIC_KB_PATH: /srv/public/knowledge.sqlite3
+      APP_TRUST_PROXY: "true"
+    ports:
+      - "127.0.0.1:8766:8766"
+    volumes:
+      - ../data_v2:/srv/data
+      - ../knowledge.sqlite3:/srv/public/knowledge.sqlite3:ro
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8766/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

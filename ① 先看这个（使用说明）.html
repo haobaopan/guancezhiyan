@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>管策智研 · 使用说明</title>
+<style>
+  :root{
+    --paper:#F6F1E4; --ink:#2B2118; --brand:#1F3B37;
+    --forest:#3E5741; --moss:#A9B08A; --cream:#FBF7EC; --lime:#C9CF88;
+    --accent:#9E2B25; --line:#DED5C0;
+    --serif:"Songti SC","Source Han Serif SC","Noto Serif CJK SC","STSong",serif;
+    --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  .topbar{
+    background:var(--forest); color:#FAF6E8;
+    padding:26px 24px 22px; text-align:center; position:relative;
+    border-bottom:4px solid var(--lime);
+  }
+  .topbar h1{
+    margin:0; font-family:var(--serif); font-size:27px; font-weight:900;
+    letter-spacing:.14em; text-indent:.14em;
+  }
+  .topbar p{
+    margin:8px 0 0; font-family:"Kaiti SC","STKaiti",serif;
+    font-size:14px; letter-spacing:.18em; color:rgba(250,246,232,.82);
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:30px 22px 70px}
+  .lead{
+    background:var(--cream); border-left:4px solid var(--accent);
+    padding:14px 18px; margin:0 0 30px; font-size:15px;
+  }
+  h2{
+    font-family:var(--serif); font-size:19px; font-weight:800;
+    margin:38px 0 14px; padding-bottom:8px;
+    border-bottom:1px solid var(--line); letter-spacing:.04em;
+  }
+  h2 .num{
+    display:inline-block; width:24px; height:24px; line-height:24px;
+    background:var(--forest); color:#fff; text-align:center;
+    border-radius:2px; font-size:14px; font-family:var(--sans);
+    margin-right:9px; vertical-align:2px;
+  }
+  .step{
+    display:flex; gap:14px; align-items:flex-start;
+    background:var(--cream); border:1px solid var(--line);
+    padding:15px 17px; margin-bottom:12px;
+  }
+  .step .idx{
+    flex:0 0 30px; height:30px; line-height:30px; text-align:center;
+    background:var(--moss); color:#22301F; font-weight:700; font-size:15px;
+    border-radius:2px;
+  }
+  .step .body{flex:1; min-width:0}
+  .step b{display:block; font-size:16px; margin-bottom:3px}
+  .step span{display:block; font-size:14px; color:#5A4E42; line-height:1.7}
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    background:#EFE9DB; padding:1px 6px; border-radius:2px; font-size:13.5px;
+    word-break:break-all;
+  }
+  table{width:100%; border-collapse:collapse; margin:6px 0 4px; font-size:14.5px}
+  th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top}
+  th{background:var(--moss); color:#22301F; font-weight:700; white-space:nowrap}
+  td:first-child{white-space:nowrap; font-weight:600}
+  .tag{
+    display:inline-block; font-size:12px; padding:1px 7px; border-radius:2px;
+    background:var(--forest); color:#fff; margin-left:6px; vertical-align:1px;
+  }
+  .qa{border-left:3px solid var(--moss); padding:2px 0 2px 15px; margin:0 0 18px}
+  .qa .q{font-weight:700; margin-bottom:3px; color:var(--brand)}
+  .qa .a{font-size:14.5px; color:#5A4E42; margin:0}
+  .warn{
+    background:#FBF3E8; border:1px solid #E3C9A8; padding:13px 16px;
+    font-size:14.5px; margin:16px 0 0;
+  }
+  .foot{
+    margin-top:44px; padding-top:16px; border-top:1px solid var(--line);
+    font-size:13px; color:#7A6C5C; text-align:center; letter-spacing:.05em;
+  }
+  @media (max-width:640px){
+    body{font-size:15px}
+    .topbar h1{font-size:22px}
+    .wrap{padding:22px 15px 56px}
+    table{font-size:13.5px}
+    th,td{padding:7px 8px}
+  }
+  @media print{
+    body{background:#fff}
+    .topbar{background:#fff; color:#000; border-bottom:2px solid #000}
+    .step,.lead,.warn{background:#fff}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>管策智研</h1>
+  <p>你的政策文本研究小助手 · 使用说明</p>
+</div>
+
+<div class="wrap">
+
+  <p class="lead">
+    这份说明写给第一次用的人。你不需要懂代码，也不需要联网查资料——
+    全程只做一件事：<strong>双击一个文件，等浏览器自己打开。</strong>
+  </p>
+
+  <h2><span class="num">1</span>在自己电脑上用</h2>
+
+  <div class="step">
+    <div class="idx">①</div>
+    <div class="body">
+      <b>双击「② 双击启动.command」</b>
+      <span>会弹出一个黑色小窗口，几行字滚过去，然后浏览器自动打开。窗口<strong>别关</strong>，关掉服务就停了。用完了直接关窗口即可。</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="idx">②</div>
+    <div class="body">
+      <b>在输入框里打字提问</b>
+      <span>比如「乡村振兴战略的总体要求是什么」「沧州市产业结构调整的量化目标是什么」。按 <code>⌘ + Enter</code> 直接提交。</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="idx">③</div>
+    <div class="body">
+      <b>点任意一条证据，就能跳回原文</b>
+      <span>会打开原文网页，并自动滚动、黄色高亮到那一句，顶部写着「文件 / 章节 / 段落 / 片段」——方便你核对它有没有乱说。</span>
+    </div>
+  </div>
+
+  <h2><span class="num">2</span>四个功能分别在哪儿</h2>
+
+  <table>
+    <tr><th>功能</th><th>什么时候用</th></tr>
+    <tr><td>政策问答</td><td>想知道某份文件说了什么，要带出处的答案</td></tr>
+    <tr><td>四要素提取</td><td>要批量整理「量化目标 / 重点产业 / 政策工具 / 责任主体」，可导 Excel</td></tr>
+    <tr><td>多文件比较</td><td>几份文件放一起对照，怕张冠李戴</td></tr>
+    <tr><td>跨期演变</td><td>同一个地区同一主题，从「十一五」排到「十四五」看变化</td></tr>
+  </table>
+
+  <p style="font-size:14.5px;color:#5A4E42;margin-top:12px">
+    结果区下方可以一键导出 Word / Excel / PPT / CSV，导出的 Word 带页码和引用链接，可以直接附进材料。
+  </p>
+
+  <h2><span class="num">3</span>让手机也能打开</h2>
+
+  <p style="font-size:15px;margin:0 0 14px">
+    两个脚本，区别只有一个：<strong>手机要不要和电脑连同一个 Wi-Fi</strong>。挑一个双击就行。
+  </p>
+
+  <table>
+    <tr><th>双击哪个</th><th>适用场景</th></tr>
+    <tr><td>⑤ 一张码走天下<br><span class="tag">推荐</span></td><td>手机用流量、连别的 Wi-Fi 都能开。走公网隧道，绕开校园网限制</td></tr>
+    <tr><td>④ 固定二维码</td><td>手机和电脑连同一个 Wi-Fi，令牌固定不变、码不用每次重画。校园网常禁止设备互访，可能连不上</td></tr>
+  </table>
+
+  <div class="warn">
+    <strong>用 ⑤ 的要注意一件事：</strong>
+    它的网址是临时的，<strong>每次重启都会换一个新的</strong>。所以别把二维码截图长期发出去。
+    想让图片永久不变，就把它指向「草料活码」（cli.im），以后只改后台的网址、图片不用换。
+    具体步骤脚本运行完会打印在窗口里。
+  </div>
+
+  <h2><span class="num">4</span>看到这些提示，分别是什么意思</h2>
+
+  <div class="qa">
+    <div class="q">顶栏写着「关键词检索」而不是「语义检索已启用」</div>
+    <p class="a">说明还没配嵌入模型的密钥（或账户余额不足）。<strong>功能不受影响</strong>，只是找材料靠字面匹配，同义改写的问题可能找不全。想让检索更聪明，双击 <code>配置嵌入密钥.command</code>。</p>
+  </div>
+
+  <div class="qa">
+    <div class="q">只给了证据，没写成一段结论，还提示「生成模型不可用」</div>
+    <p class="a">这是<strong>故意的</strong>。没有可用的生成模型时，它宁可把原始证据摆给你，也不编一段没有依据的话。配好密钥就会自动生成结论。</p>
+  </div>
+
+  <div class="qa">
+    <div class="q">手机扫码后显示「Cloudflare Tunnel error」或一片英文报错</div>
+    <p class="a">不是二维码坏了，是<strong>电脑上那个黑窗口被关掉了</strong>，服务停了。重新双击 ⑤（或 ④），用它新生成的码再扫。旧码作废。</p>
+  </div>
+
+  <div class="qa">
+    <div class="q">出现「端口 8765 已被占用」</div>
+    <p class="a">说明上一个窗口的服务还在后台跑。<strong>现在不需要你动手</strong>：脚本会自己停掉旧进程再继续，最多等两三秒。只有当它提示「停不下来」时，才需要重启电脑。</p>
+  </div>
+
+  <div class="qa">
+    <div class="q">出现「Cloudflare 暂时不给新地址（429 限流）」</div>
+    <p class="a">免费隧道有配额，短时间内反复重启会把额度用完。<strong>这时什么都别点</strong>，脚本会自己倒计时重试，最多试五次。<strong>手点得越勤恢复得越慢</strong>——每双击一次都是一次新申请。通常十几分钟自行恢复，等待期间本机 <code>127.0.0.1:8765</code> 照常可用。</p>
+  </div>
+
+  <div class="qa">
+    <div class="q">打开要等好几秒，正常吗</div>
+    <p class="a">正常。公网隧道第一次握手比较慢，之后会快一些。本机访问 <code>127.0.0.1:8765</code> 是最快的。</p>
+  </div>
+
+  <div class="qa">
+    <div class="q">提示「未授权」</div>
+    <p class="a">网址里的 <code>?token=</code> 那一段被截断了。重新扫一次完整的码，或者手动把整条网址复制到浏览器。</p>
+  </div>
+
+  <h2><span class="num">5</span>想检查它是不是还健康</h2>
+
+  <div class="step">
+    <div class="idx">✓</div>
+    <div class="body">
+      <b>双击「③ 交付前检查.command」</b>
+      <span>查知识库完不完整、有没有运行痕迹、密钥有没有泄漏、文档齐不齐。要清理运行文件，加 <code>--clean</code> 再跑。</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="idx">✓</div>
+    <div class="body">
+      <b>双击「验收自检.py」对应的一次自检</b>
+      <span>端到端跑 30 项检查（它用的是知识库副本，不会动你的原库），跑完生成一份 <code>验收清单_时间戳.md</code>。</span>
+    </div>
+  </div>
+
+  <p class="foot">
+    管策智研 · 政策文本研究助手　｜　只用 Python 标准库，双击即用，数据不出本机
+  </p>
+
+</div>
+</body>
+</html>

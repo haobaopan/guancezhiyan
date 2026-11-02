@@ -1,0 +1,16 @@
+.env
+.env.*
+*.sqlite3
+*.sqlite3-*
+*.bak
+data_v2
+documents
+audit*.jsonl
+__pycache__
+**/__pycache__
+.git
+.codex
+.agents
+参赛资料要求
+tests
+docs

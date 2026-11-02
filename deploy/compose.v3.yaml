@@ -1,0 +1,46 @@
+# VM deployment: code from GitHub, persistent data managed outside checkout.
+# Prepare /srv/policy/data (UID 10001) and transfer the public KB separately.
+name: policy-v3
+services:
+  policy:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.v2
+    restart: unless-stopped
+    env_file: ../.env.v3
+    environment:
+      APP_HOST: 0.0.0.0
+      APP_PORT: 8766
+      APP_DATA_DIR: /srv/data
+      PUBLIC_KB_PATH: /srv/public/knowledge.sqlite3
+      APP_TRUST_PROXY: "true"
+    ports:
+      - "127.0.0.1:8766:8766"
+    volumes:
+      - type: bind
+        source: /srv/policy/data
+        target: /srv/data
+        bind:
+          create_host_path: false
+      - type: bind
+        source: /srv/policy/public/knowledge.sqlite3
+        target: /srv/public/knowledge.sqlite3
+        read_only: true
+        bind:
+          create_host_path: false
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8766/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3

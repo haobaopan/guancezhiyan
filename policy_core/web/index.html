@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>管策智研｜规划文本智能体</title>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="topbar">
+    <div class="brand">
+      <h1>管策智研</h1>
+      <p>你的政策文本研究小助手</p>
+    </div>
+    <div class="cluster">
+      <button class="ghost" id="btn-new">新建会话</button>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button data-mode="ask" class="on"><span>政策问答</span><small>给结论，每句都能追回原文</small></button>
+    <button data-mode="extract"><span>四要素提取</span><small>目标 · 产业 · 工具 · 责任主体</small></button>
+    <button data-mode="compare"><span>多文件比较</span><small>同一议题跨地区横向对照</small></button>
+    <button data-mode="evolution"><span>跨期演变</span><small>同一主题历次规划的变化</small></button>
+  </nav>
+</header>
+
+<main class="shell">
+  <section class="main">
+
+    <div class="composer">
+      <textarea id="q" placeholder="用一句话提问，例如：沧州市十五规划产业结构调整的主要方向"></textarea>
+      <div class="composer-foot">
+        <div class="examples" id="examples"></div>
+        <div class="send">
+          <span class="kbd">⌘ / Ctrl + Enter</span>
+          <button id="btn-run" class="primary">检索并分析</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice hidden" id="notice"></div>
+
+    <section id="result" class="hidden">
+      <div class="meta" id="meta"></div>
+      <article class="answer" id="answer"></article>
+
+      <div id="table"></div>
+      <div id="periods"></div>
+
+      <div id="ev-head" class="hidden">
+        <h2 class="sec">引用原文 <small id="ev-count"></small></h2>
+      </div>
+      <div id="sources" class="sources"></div>
+
+      <div class="exportbar hidden" id="exports">
+        <b>导出本次结果</b>
+        <button data-fmt="docx">Word 文档</button>
+        <button data-fmt="xlsx">Excel 表格</button>
+        <button data-fmt="csv">CSV</button>
+        <button data-fmt="pptx">演示文稿</button>
+        <span class="tail">导出内容与页面一致，含出处标注</span>
+      </div>
+    </section>
+
+    <section class="empty" id="empty">
+      <svg class="illus" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+        <path d="M28 22h44a7 7 0 0 1 7 7v69a7 7 0 0 1-7 7H28z" stroke="currentColor" stroke-width="1.1" opacity=".55"/>
+        <path d="M38 40h31M38 51h31M38 62h23M38 73h27" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" opacity=".38"/>
+        <path d="M20 30v72" stroke="currentColor" stroke-width="1.1" opacity=".28"/>
+        <rect x="72" y="74" width="17" height="17" rx="1.5" stroke="#9E2B25" stroke-width="1.3" opacity=".72"/>
+        <path d="M77 82.5h7" stroke="#9E2B25" stroke-width="1.1" opacity=".55"/>
+      </svg>
+      <h3>从一个具体问题开始</h3>
+      <ol>
+        <li>问题写得越具体，检索越准。</li>
+        <li>选一个入口：问答给结论，四要素出表格，比较做横向对照，跨期看演变。</li>
+        <li>结论后的编号对应下方原文，点标题即回看该片段并高亮。</li>
+      </ol>
+      <div class="flow">
+        <div>提问</div><div>→</div><div>检索</div><div>→</div><div>逐条核对引文</div><div>→</div><div>标注出处</div><div>→</div><div>导出</div>
+      </div>
+    </section>
+  </section>
+
+  <aside class="side">
+    <div class="panel">
+      <h3>知识库文件</h3>
+      <p class="sub" id="db-count">—</p>
+      <ul class="files" id="list"><li class="none">读取中…</li></ul>
+    </div>
+
+    <div class="panel">
+      <h3>导入新文件</h3>
+      <p class="sub">上传后立即切片、建索引，可被检索</p>
+      <input type="file" id="files" multiple accept=".txt,.md,.docx,.pdf">
+      <button class="act" id="btn-upload">上传并建索引</button>
+    </div>
+
+    <div class="panel note">
+      <h3>为什么可信</h3>
+      <p>回答被拆成最小事实主张，逐条与原文比对；未通过校验的主张直接省略，不做补写。检索不到就回答检索不到。</p>
+    </div>
+  </aside>
+</main>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>
