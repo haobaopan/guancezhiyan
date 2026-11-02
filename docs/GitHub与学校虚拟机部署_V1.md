@@ -8,7 +8,7 @@
 - 已确认学校虚拟机地址：`10.27.80.201`，初始管理用户为 `root`。密码不写入本文件或 Git。
 - 用户确认当前 Mac 已连接校园网或学校 VPN；当前探测 TCP 22 超时，仍需确认学校网络 ACL、虚拟机开机状态、SSH 端口和服务状态。
 - 当前到该地址的路由经过 `en0`，网关为 `10.28.255.254`；这只是本机观察结果，不代表学校已允许跨网段 SSH。
-- 本地已经初始化 Git 仓库，远端为 `https://github.com/haobaopan/guancezhiyan.git`，已验证远端当前为空。推送是否完成需比对远端 `main` 与本地提交；虚拟机尚未连接、尚未上线。
+- GitHub 登录与首次推送已完成：仓库为 `https://github.com/haobaopan/guancezhiyan.git`，分支为 `main`，首次源码提交为 `f64a601`。虚拟机尚未连接、尚未上线。
 - 域名和受信任 HTTPS 证书尚未确认。先完成内网管理通路，再配置 HTTPS，不修改应用的 HTTPS 校验来绕过此项。
 - 本地 43 项单元/HTTP/公共知识库回归通过；两套页面 JavaScript 语法检查通过。
 - 使用独立临时数据启动真实入口：`/health`、`/`、`/style.css`、`/app.js` 正常；未登录 `/api/state` 返回 401，页面保留 CSP 和 nosniff。
@@ -32,7 +32,9 @@
 
 ## 1. GitHub 仓库与本地代码
 
-用户已创建仓库 `haobaopan/guancezhiyan`。本地 `origin` 指向 `https://github.com/haobaopan/guancezhiyan.git`，使用现有 Git 作者配置及系统凭据助手，不将认证凭证写入仓库。
+用户已创建仓库 `haobaopan/guancezhiyan`。本地 `origin` 指向 `https://github.com/haobaopan/guancezhiyan.git`，使用现有 Git 作者配置；已通过 GitHub CLI 浏览器设备授权登录 `haobaopan` 并配置 Git 凭据助手，不将认证凭证写入仓库。
+
+当前 Mac 的命令行直连 GitHub 曾超时；登录和推送通过系统已有代理 `http://127.0.0.1:7890` 完成，代理只作用于相应命令，未修改全局 Git 代理。此本机代理地址不能复制为 VM 网络配置。
 
 本地已有 `.gitignore`，真实 `.env`、数据库、用户数据、学校资料和备份被排除；`.env.v2.example` 与 `.env.v3.example` 可以提交。首次推送前已检查候选文件中的凭证模式与本机 `.env` 密钥值；识别到的两个命中均为安全测试使用的固定假凭证，未发现其余命中。
 
